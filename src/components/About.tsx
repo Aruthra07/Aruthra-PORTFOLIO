@@ -87,9 +87,9 @@ export const About: React.FC<AboutProps> = ({ playAudio }) => {
               {/* Profile Photo */}
               <div className="absolute inset-2 md:inset-4 z-10 rounded-full overflow-hidden aspect-square flex-shrink-0 bg-bgSecondary border-[3px] border-white/10 group-hover:border-accentCyan/40 shadow-[0_0_30px_rgba(139,92,246,0.3)] transition-all duration-500">
                 <img
-                  src={import.meta.env.BASE_URL + "poftfolio images/my_photo[1].jpg"}
+                  src={import.meta.env.BASE_URL + "portfolio_images/my_photo[1].jpg"}
                   alt="Aruthra S M Portrait"
-                  className="w-full h-full object-cover object-top select-none transform group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-cover object-center select-none transform group-hover:scale-110 transition-transform duration-700"
                 />
               </div>
             </motion.div>
@@ -112,7 +112,7 @@ export const About: React.FC<AboutProps> = ({ playAudio }) => {
         {/* Right Column: Bio Story & Performance Bars */}
         <div className="lg:col-span-7 flex flex-col gap-6 text-textSecondary font-sans">
           <p className="text-sm md:text-base leading-relaxed">
-            I believe that true innovation happens at the intersection of technology and human connection. As an Electronics & Communication Engineering student with an <strong className="text-accentCyan">8.8 CGPA</strong>, my focus extends far beyond writing code—I am driven by a passion to build communities, lead teams, and communicate complex ideas effectively.
+            I believe that true innovation happens at the intersection of technology and human connection. As an Electronics & Communication Engineering student with an <strong className="text-accentCyan">8.8 CGPA</strong>, my focus extends far beyond writing codeâ€”I am driven by a passion to build communities, lead teams, and communicate complex ideas effectively.
           </p>
           <p className="text-sm md:text-base leading-relaxed">
             My expertise lies in blending <strong className="text-textPrimary">technical exploration</strong> with <strong className="text-textPrimary">leadership</strong>. Whether I'm diving into AI and cloud architectures, managing technical events, or delivering a public speech, my goal is always to empower others and create meaningful, scalable solutions. Continuous learning is not just a habit for me; it's the foundation of my journey.

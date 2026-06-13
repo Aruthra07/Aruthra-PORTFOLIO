@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, GitBranch, Star, MessageSquare, Award } from 'lucide-react';
 
@@ -158,7 +158,7 @@ export const SocialShowcase: React.FC<SocialShowcaseProps> = ({ playAudio }) => 
             <div className="flex gap-4 items-center mb-6">
               <div className="w-12 h-12 rounded-full overflow-hidden border border-glass-border shadow-md flex-shrink-0 bg-gradient-main p-0.5">
                 <img
-                  src="/poftfolio images/my_photo[1].jpg"
+                  src="/portfolio_images/my_photo[1].jpg"
                   alt="Aruthra S M"
                   className="w-full h-full object-cover rounded-full"
                 />

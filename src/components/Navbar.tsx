@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Moon, Sun, Volume2, VolumeX, Menu, X, ArrowRight } from 'lucide-react';
 
@@ -136,7 +136,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Resume Download (Desktop) */}
           <a
-            href={import.meta.env.BASE_URL + "poftfolio images/Updated_Resume.pdf"}
+            href={import.meta.env.BASE_URL + "portfolio_images/Updated_Resume.pdf"}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => playAudio('click')}
@@ -159,6 +159,8 @@ export const Navbar: React.FC<NavbarProps> = ({
             Hire Me
             <ArrowRight className="w-3.5 h-3.5" />
           </a>
+
+          {/* Clerk Auth Removed */}
 
           {/* Hamburger Menu Toggle */}
           <button
@@ -199,7 +201,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               </a>
             ))}
             <a
-              href={import.meta.env.BASE_URL + "poftfolio images/Updated_Resume.pdf"}
+              href={import.meta.env.BASE_URL + "portfolio_images/Updated_Resume.pdf"}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => {
@@ -222,6 +224,8 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               Hire Me
             </a>
+            
+            {/* Clerk Auth Removed */}
           </motion.div>
         )}
       </AnimatePresence>

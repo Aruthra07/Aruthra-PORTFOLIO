@@ -109,6 +109,7 @@ export const AIAssistant: React.FC<AIAssistantProps> = ({ playAudio }) => {
               </button>
             </div>
 
+            {/* Content Area */}
             {/* Chat Messages */}
             <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-3 scrollbar-none bg-[#030612]/30">
               {messages.map((msg, i) => (

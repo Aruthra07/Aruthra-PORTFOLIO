@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Clock, BookOpen } from 'lucide-react';
 
@@ -14,7 +14,7 @@ const ARTICLES = [
     date: 'May 2025',
     readTime: '5 min read',
     link: 'https://www.linkedin.com/pulse/day-microsoft-walking-dream-aruthra-manivannan-e9syc',
-    image: import.meta.env.BASE_URL + 'poftfolio images/MS.jpg',
+    image: import.meta.env.BASE_URL + 'portfolio_images/MS.jpg',
     tags: ['Microsoft', 'Cloud', 'Community']
   },
   {
@@ -24,7 +24,7 @@ const ARTICLES = [
     date: 'April 2025',
     readTime: '4 min read',
     link: 'https://www.linkedin.com/pulse/time-transformed-my-solo-ride-bangalore-aruthra-manivannan-qc03c',
-    image: import.meta.env.BASE_URL + 'poftfolio images/hackathon_banner.png',
+    image: import.meta.env.BASE_URL + 'portfolio_images/hackathon_banner.png',
     tags: ['Hackathon', 'IoT', 'Sustainability']
   },
   {
@@ -34,7 +34,7 @@ const ARTICLES = [
     date: 'June 2025',
     readTime: '6 min read',
     link: 'https://www.linkedin.com/pulse/some-journeys-dont-change-your-destination-who-you-aruthra-manivannan-psufc',
-    image: import.meta.env.BASE_URL + 'poftfolio images/tech_conf_banner.png',
+    image: import.meta.env.BASE_URL + 'portfolio_images/tech_conf_banner.png',
     tags: ['Hardware', 'Prototyping', 'Teamwork']
   }
 ];

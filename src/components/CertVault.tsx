@@ -1,3 +1,4 @@
+#Fix Clerk authentication, Neon database setup, and deployment issues
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, X, Calendar, Bookmark, Maximize2, Search, ArrowUpDown } from 'lucide-react';
@@ -28,8 +29,8 @@ const CERTIFICATES: Certificate[] = [
     date: '2025-01',
     displayDate: 'January 2025',
     iconClass: 'fab fa-aws text-orange-400',
-    image: import.meta.env.BASE_URL + 'poftfolio images/AWS_Cert.png',
-    link: import.meta.env.BASE_URL + 'poftfolio images/AWS_Cert.pdf',
+    image: import.meta.env.BASE_URL + 'portfolio_images/AWS_Cert.png',
+    link: import.meta.env.BASE_URL + 'portfolio_images/AWS_Cert.pdf',
     credentialId: 'AWS-CCP-2025-9981'
   },
   {
@@ -40,8 +41,8 @@ const CERTIFICATES: Certificate[] = [
     date: '2025-02',
     displayDate: 'February 2025',
     iconClass: 'fas fa-snowflake text-sky-400',
-    image: import.meta.env.BASE_URL + 'poftfolio images/Snowflake_Cert.png',
-    link: import.meta.env.BASE_URL + 'poftfolio images/Snowflake_Cert.pdf',
+    image: import.meta.env.BASE_URL + 'portfolio_images/Snowflake_Cert.png',
+    link: import.meta.env.BASE_URL + 'portfolio_images/Snowflake_Cert.pdf',
     credentialId: 'SF-SNOWPRO-CORE-1025'
   },
   {
@@ -52,8 +53,8 @@ const CERTIFICATES: Certificate[] = [
     date: '2025-03',
     displayDate: 'March 2025',
     iconClass: 'fas fa-cloud text-blue-400',
-    image: import.meta.env.BASE_URL + 'poftfolio images/Salesforce_Cert.png',
-    link: import.meta.env.BASE_URL + 'poftfolio images/Salesforce_Cert.pdf',
+    image: import.meta.env.BASE_URL + 'portfolio_images/Salesforce_Cert.png',
+    link: import.meta.env.BASE_URL + 'portfolio_images/Salesforce_Cert.pdf',
     credentialId: 'SF-AG-SPECIALIST-3849'
   },
   {
@@ -64,8 +65,8 @@ const CERTIFICATES: Certificate[] = [
     date: '2025-04',
     displayDate: 'April 2025',
     iconClass: 'fas fa-cogs text-green-500',
-    image: import.meta.env.BASE_URL + 'poftfolio images/ServiceNow_Cert.png',
-    link: import.meta.env.BASE_URL + 'poftfolio images/ServiceNow_Cert.pdf',
+    image: import.meta.env.BASE_URL + 'portfolio_images/ServiceNow_Cert.png',
+    link: import.meta.env.BASE_URL + 'portfolio_images/ServiceNow_Cert.pdf',
     credentialId: 'SN-CSA-2025-0982'
   },
   {
@@ -76,8 +77,8 @@ const CERTIFICATES: Certificate[] = [
     date: '2025-05',
     displayDate: 'May 2025',
     iconClass: 'fas fa-database text-red-500',
-    image: import.meta.env.BASE_URL + 'poftfolio images/Oracle_Cert.png',
-    link: import.meta.env.BASE_URL + 'poftfolio images/Oracle_Cert.pdf',
+    image: import.meta.env.BASE_URL + 'portfolio_images/Oracle_Cert.png',
+    link: import.meta.env.BASE_URL + 'portfolio_images/Oracle_Cert.pdf',
     credentialId: 'OCI-ASSOCIATE-2025-7763'
   },
   {
@@ -85,11 +86,11 @@ const CERTIFICATES: Certificate[] = [
     name: 'OCI Generative AI Professional',
     provider: 'Oracle',
     category: 'cloud',
-    date: '2025-06',
-    displayDate: 'June 2025',
+    date: '2026-03',
+    displayDate: 'March 2026',
     iconClass: 'fas fa-brain text-purple-400',
-    image: import.meta.env.BASE_URL + 'poftfolio images/oracle/eCertificate.png',
-    link: import.meta.env.BASE_URL + 'poftfolio images/oracle/eCertificate.pdf',
+    image: import.meta.env.BASE_URL + 'portfolio_images/oracle/eCertificate.png',
+    link: import.meta.env.BASE_URL + 'portfolio_images/oracle/eCertificate.pdf',
     credentialId: 'OCI-GENAI-PRO-1102'
   },
   {
@@ -100,7 +101,7 @@ const CERTIFICATES: Certificate[] = [
     date: '2024-10',
     displayDate: 'October 2024',
     iconClass: 'fab fa-microsoft text-blue-500',
-    image: import.meta.env.BASE_URL + 'poftfolio images/MS.jpg',
+    image: import.meta.env.BASE_URL + 'portfolio_images/MS.jpg',
     link: '#',
     credentialId: 'MS-AZ-900-PENDING'
   },
@@ -112,7 +113,7 @@ const CERTIFICATES: Certificate[] = [
     date: '2024-05',
     displayDate: 'May 2024',
     iconClass: 'fab fa-python text-yellow-500',
-    image: 'https://images.unsplash.com/photo-1526379095098-d400fd0bfce8?auto=format&fit=crop&q=80&w=600',
+    image: import.meta.env.BASE_URL + 'portfolio_images/automation_banner.png',
     link: '#',
     credentialId: 'PY-INST-PENDING'
   },
@@ -124,7 +125,7 @@ const CERTIFICATES: Certificate[] = [
     date: '2024-08',
     displayDate: 'August 2024',
     iconClass: 'fas fa-network-wired text-emerald-500',
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600',
+    image: import.meta.env.BASE_URL + 'portfolio_images/cyber_banner.png',
     link: '#',
     credentialId: 'IIOT-SPEC-PENDING'
   },
@@ -136,7 +137,7 @@ const CERTIFICATES: Certificate[] = [
     date: '2024-11',
     displayDate: 'November 2024',
     iconClass: 'fas fa-cube text-red-600',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600',
+    image: import.meta.env.BASE_URL + 'portfolio_images/tech_conf_banner.png',
     link: '#',
     credentialId: 'DB-ENG-PENDING'
   }

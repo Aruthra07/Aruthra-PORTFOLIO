@@ -34,8 +34,8 @@ const PROJECTS: Project[] = [
     github: 'https://github.com/Aruthra07/Smart-Hydroponics',
     demo: '#',
     gallery: [
-      'https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1530836369250-ef71a3f5e4bf?auto=format&fit=crop&q=80&w=800'
+      import.meta.env.BASE_URL + 'portfolio_images/hackathon_banner.png',
+      import.meta.env.BASE_URL + 'portfolio_images/automation_banner.png'
     ],
     icon: (
       <svg className="w-8 h-8 text-green-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -58,8 +58,8 @@ const PROJECTS: Project[] = [
     github: 'https://github.com/Aruthra07',
     demo: '#',
     gallery: [
-      'https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800'
+      import.meta.env.BASE_URL + 'portfolio_images/cyber_banner.png',
+      import.meta.env.BASE_URL + 'portfolio_images/tech_conf_banner.png'
     ],
     icon: (
       <svg className="w-8 h-8 text-accentCyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -81,8 +81,8 @@ const PROJECTS: Project[] = [
     github: 'https://github.com/Aruthra07',
     demo: '#',
     gallery: [
-      'https://images.unsplash.com/photo-1510017803434-a899398421b3?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1574406280735-351fc1a7c5e0?auto=format&fit=crop&q=80&w=800'
+      import.meta.env.BASE_URL + 'portfolio_images/tech_conf_banner.png',
+      import.meta.env.BASE_URL + 'portfolio_images/hackathon_banner.png'
     ],
     icon: (
       <svg className="w-8 h-8 text-accentPurple" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -103,7 +103,7 @@ const PROJECTS: Project[] = [
     github: 'https://github.com/Aruthra07/AI-Career-Recommendation',
     demo: '#',
     gallery: [
-      'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800'
+      import.meta.env.BASE_URL + 'portfolio_images/automation_banner.png'
     ],
     icon: (
       <svg className="w-8 h-8 text-accentPink" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -126,7 +126,7 @@ const PROJECTS: Project[] = [
     github: 'https://github.com/Aruthra07/Automation-Workflows',
     demo: '#',
     gallery: [
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800'
+      import.meta.env.BASE_URL + 'portfolio_images/automation_banner.png'
     ],
     icon: (
       <svg className="w-8 h-8 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -146,7 +146,7 @@ const PROJECTS: Project[] = [
     github: 'https://github.com/Aruthra07/AI-Analytics-Dashboard',
     demo: '#',
     gallery: [
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800'
+      import.meta.env.BASE_URL + 'portfolio_images/tech_conf_banner.png'
     ],
     icon: (
       <svg className="w-8 h-8 text-accentBlue" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -242,7 +242,7 @@ export const Projects: React.FC<ProjectsProps> = ({ playAudio }) => {
                 setSelectedProject(project);
               }}
               onMouseEnter={() => playAudio('hover')}
-              className="glass-card p-7 rounded-3xl border border-glass-border flex flex-col justify-between group relative overflow-hidden cursor-pointer hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"
+              className="glass-card p-5 rounded-2xl border border-glass-border flex flex-col justify-between group relative overflow-hidden cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
             >
               {/* Bottom accent glow strip */}
               <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-glow scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
@@ -250,25 +250,25 @@ export const Projects: React.FC<ProjectsProps> = ({ playAudio }) => {
               <div>
                 {/* Number & Big Icon */}
                 <div className="flex justify-between items-start mb-6">
-                  <span className="text-4xl md:text-5xl font-black font-display text-accentCyan/15 select-none font-mono">
+                  <span className="text-3xl md:text-4xl font-black font-display text-accentCyan/15 select-none font-mono">
                     {project.num}
                   </span>
-                  <span className="p-2 bg-white/5 rounded-2xl border border-glass-border select-none flex items-center justify-center">
+                  <span className="p-1.5 bg-white/5 rounded-xl border border-glass-border select-none flex items-center justify-center scale-75">
                     {project.icon}
                   </span>
                 </div>
 
-                <h3 className="text-lg md:text-xl font-bold font-display text-textPrimary mb-3 group-hover:text-accentCyan transition-colors duration-300">
+                <h3 className="text-base md:text-lg font-bold font-display text-textPrimary mb-2 group-hover:text-accentCyan transition-colors duration-300">
                   {project.title}
                 </h3>
-                <p className="text-xs md:text-sm text-textSecondary leading-relaxed mb-6 line-clamp-3">
+                <p className="text-[10px] md:text-xs text-textSecondary leading-relaxed mb-4 line-clamp-2">
                   {project.desc}
                 </p>
               </div>
 
               {/* Technologies & Links */}
               <div>
-                <div className="flex flex-wrap gap-1.5 mb-6">
+                <div className="flex flex-wrap gap-1 mb-4">
                   {project.techs.slice(0,3).map((tech, i) => (
                     <span
                       key={i}
@@ -284,11 +284,11 @@ export const Projects: React.FC<ProjectsProps> = ({ playAudio }) => {
                   )}
                 </div>
 
-                <div className="flex items-center gap-4 pt-4 border-t border-glass-border">
+                <div className="flex items-center gap-3 pt-3 border-t border-glass-border">
                   <button
-                    className="flex-1 py-2.5 bg-white/5 hover:bg-white/10 rounded-xl text-xs font-bold text-textPrimary transition-colors flex items-center justify-center gap-2"
+                    className="flex-1 py-1.5 bg-white/5 hover:bg-white/10 rounded-lg text-[10px] font-bold text-textPrimary transition-colors flex items-center justify-center gap-1.5"
                   >
-                    View Details <ExternalLink className="w-3.5 h-3.5" />
+                    View Details <ExternalLink className="w-3 h-3" />
                   </button>
                 </div>
               </div>

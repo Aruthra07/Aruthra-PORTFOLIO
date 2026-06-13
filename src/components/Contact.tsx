@@ -16,6 +16,11 @@ export const Contact: React.FC<ContactProps> = ({ playAudio }) => {
 
     setTimeout(() => {
       setStatus('success');
+      
+      const subject = encodeURIComponent(formState.subject || 'Contact from Portfolio');
+      const body = encodeURIComponent(`Name: ${formState.name}\nEmail: ${formState.email}\n\nMessage:\n${formState.message}`);
+      window.location.href = `mailto:aruthramani785@gmail.com?subject=${subject}&body=${body}`;
+
       setFormState({ name: '', email: '', subject: '', message: '' });
 
       // Reset status back to idle after 3 seconds

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+﻿import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Compass, Code, Send, Download, Award, Users, Calendar, FileText } from 'lucide-react';
 
@@ -186,7 +186,7 @@ export const Hero: React.FC<HeroProps> = ({ playAudio }) => {
           className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-panel border border-glass-border shadow-lg text-accentCyan font-sans text-xs md:text-sm font-semibold mb-8 backdrop-blur-md"
         >
           <span className="w-2 h-2 rounded-full bg-accentCyan animate-ping" />
-          ✦ ECE Student &middot; AI Explorer &middot; Community Leader
+          âœ¦ ECE Student &middot; AI Explorer &middot; Community Leader
         </motion.div>
 
         {/* Title */}
@@ -274,7 +274,7 @@ export const Hero: React.FC<HeroProps> = ({ playAudio }) => {
           </a>
 
           <a
-            href={import.meta.env.BASE_URL + "poftfolio images/Updated_Resume.pdf"}
+            href={import.meta.env.BASE_URL + "portfolio_images/Updated_Resume.pdf"}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => playAudio('click')}

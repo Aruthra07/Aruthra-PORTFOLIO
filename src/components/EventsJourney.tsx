@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Calendar, BookOpen, ExternalLink, Activity } from 'lucide-react';
 
@@ -40,7 +40,7 @@ const EVENTS: EventItem[] = [
     linkText: 'View LinkedIn Post',
     color: '#3b82f6',
     iconClass: 'fas fa-microphone-alt',
-    image: '/poftfolio images/tech_conf_banner.png'
+    image: '/portfolio_images/tech_conf_banner.png'
   },
   {
     id: 'cdac',
@@ -57,7 +57,7 @@ const EVENTS: EventItem[] = [
     linkText: 'View LinkedIn Post',
     color: '#06b6d4',
     iconClass: 'fas fa-shield-alt',
-    image: '/poftfolio images/cyber_banner.png'
+    image: '/portfolio_images/cyber_banner.png'
   },
   {
     id: 'cause',
@@ -74,7 +74,7 @@ const EVENTS: EventItem[] = [
     linkText: 'View LinkedIn Post',
     color: '#ec4899',
     iconClass: 'fas fa-trophy',
-    image: '/poftfolio images/hackathon_banner.png'
+    image: '/portfolio_images/hackathon_banner.png'
   },
   {
     id: 'prompt',
@@ -91,7 +91,7 @@ const EVENTS: EventItem[] = [
     linkText: 'View LinkedIn Post',
     color: '#8b5cf6',
     iconClass: 'fas fa-handshake',
-    image: '/poftfolio images/automation_banner.png'
+    image: '/portfolio_images/automation_banner.png'
   },
   {
     id: 'figma',
@@ -108,7 +108,7 @@ const EVENTS: EventItem[] = [
     linkText: 'View LinkedIn Post',
     color: '#06b6d4',
     iconClass: 'fas fa-paint-brush',
-    image: '/poftfolio images/hackathon_banner.png'
+    image: '/portfolio_images/hackathon_banner.png'
   },
   {
     id: 'n8n',
@@ -125,7 +125,7 @@ const EVENTS: EventItem[] = [
     linkText: 'View LinkedIn Post',
     color: '#8b5cf6',
     iconClass: 'fas fa-cogs',
-    image: '/poftfolio images/automation_banner.png'
+    image: '/portfolio_images/automation_banner.png'
   },
   {
     id: 'fetna',
@@ -142,7 +142,7 @@ const EVENTS: EventItem[] = [
     linkText: 'View LinkedIn Post',
     color: '#3b82f6',
     iconClass: 'fas fa-globe',
-    image: '/poftfolio images/tech_conf_banner.png'
+    image: '/portfolio_images/tech_conf_banner.png'
   },
   {
     id: 'smarteco',
@@ -159,7 +159,7 @@ const EVENTS: EventItem[] = [
     linkText: 'Read Experience',
     color: '#ec4899',
     iconClass: 'fas fa-seedling',
-    image: '/poftfolio images/hackathon_banner.png'
+    image: '/portfolio_images/hackathon_banner.png'
   },
   {
     id: 'microsoft',
@@ -176,7 +176,7 @@ const EVENTS: EventItem[] = [
     linkText: 'Read Experience',
     color: '#eab308',
     iconClass: 'fas fa-building',
-    image: '/poftfolio images/MS.jpg'
+    image: '/portfolio_images/MS.jpg'
   },
   {
     id: 'hackhustle',
@@ -193,7 +193,7 @@ const EVENTS: EventItem[] = [
     linkText: 'Read Experience',
     color: '#ec4899',
     iconClass: 'fas fa-laptop-code',
-    image: '/poftfolio images/hackathon_banner.png'
+    image: '/portfolio_images/hackathon_banner.png'
   }
 ];
 
