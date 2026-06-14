@@ -1,4 +1,4 @@
-#Fix Clerk authentication, Neon database setup, and deployment issues
+
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, X, Calendar, Bookmark, Maximize2, Search, ArrowUpDown } from 'lucide-react';

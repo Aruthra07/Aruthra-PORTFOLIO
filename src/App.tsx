@@ -13,7 +13,7 @@ import { SocialShowcase } from './components/SocialShowcase';
 import { Contact } from './components/Contact';
 import { AIAssistant } from './components/AIAssistant';
 import { VideoResume } from './components/VideoResume';
-import { EventsGlobe } from './components/EventsGlobe';
+import { EventsShowcase } from './components/EventsShowcase';
 import { Articles } from './components/Articles';
 import { LeadershipHighlights } from './components/LeadershipHighlights';
 
@@ -138,7 +138,7 @@ function App() {
         <Experience playAudio={playAudio} />
         <div className="w-[85%] h-[1px] bg-gradient-to-r from-transparent via-accentPurple/25 to-transparent my-6" />
 
-        <EventsGlobe playAudio={playAudio} />
+        <EventsShowcase playAudio={playAudio} />
         <div className="w-[85%] h-[1px] bg-gradient-to-r from-transparent via-accentPurple/25 to-transparent my-6" />
 
         <Articles playAudio={playAudio} />
