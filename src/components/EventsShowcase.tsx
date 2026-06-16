@@ -15,8 +15,8 @@ const TIMELINE_EVENTS = [
     category: 'Corporate Summit',
     learning: 'Engaged with industry leaders to explore cutting-edge Microsoft Graph integrations, Azure cognitive services, and enterprise workspace automations. Gained profound insights into scaling cloud ecosystems.',
     skills: ['Azure', 'Enterprise Automation', 'Cloud Architecture', 'Networking'],
-    image: 'portfolio_images/events/ms_campus.jpg',
-    gallery: ['portfolio_images/events/ms_campus.jpg'],
+    image: 'portfolio_images/events/Microsoft_.jpg',
+    gallery: ['portfolio_images/events/Microsoft_.jpg'],
     desc: 'An exclusive campus visit connecting with Microsoft architects. Discussions centered around the future of enterprise automation and AI-driven cloud solutions.',
     link: 'https://www.linkedin.com/in/aruthra-sm'
   },
@@ -28,8 +28,8 @@ const TIMELINE_EVENTS = [
     category: 'Competitive Hackathon',
     learning: 'Spearheaded rapid prototyping of an automated IoT modeling system under extreme time constraints, fostering team leadership and agile development.',
     skills: ['IoT Prototyping', 'Rapid Development', 'Team Leadership', 'Pitching'],
-    image: 'portfolio_images/events/cause_2025.jpg',
-    gallery: ['portfolio_images/events/cause_2025.jpg'],
+    image: 'portfolio_images/events/CMR_.jpg',
+    gallery: ['portfolio_images/events/CMR_.jpg'],
     desc: 'Participated in the intense 48-hour CAUSE 2025 Hackathon, developing an innovative smart solution from conceptualization to a fully working prototype.',
     link: 'https://www.linkedin.com/in/aruthra-sm'
   },
@@ -41,8 +41,8 @@ const TIMELINE_EVENTS = [
     category: 'Global Conference',
     learning: 'Bridged cultural insights with technological development, exploring methodologies for global networking and cross-cultural technological deployment.',
     skills: ['Global Networking', 'Leadership', 'Cross-Cultural Communication'],
-    image: 'portfolio_images/events/fetna_1.jpg',
-    gallery: ['portfolio_images/events/fetna_1.jpg', 'portfolio_images/events/fetna_2.jpg'],
+    image: 'portfolio_images/events/FetNa.jpg',
+    gallery: ['portfolio_images/events/FetNa.jpg'],
     desc: 'Served as a delegate at the FeTNA International Conference, participating in deep-dive sessions on integrating regional cultural nuances with global software solutions.',
     link: 'https://www.linkedin.com/in/aruthra-sm'
   },
@@ -54,8 +54,8 @@ const TIMELINE_EVENTS = [
     category: 'Technology Summit',
     learning: 'Explored future hardware architectures, IoT standardization, and edge computing telemetry. Evaluated embedded engineering ecosystems for smart city implementations.',
     skills: ['IoT Standards', 'Edge Computing', 'Embedded Engineering', 'Hardware'],
-    image: 'portfolio_images/events/techx.jpg',
-    gallery: ['portfolio_images/events/techx.jpg'],
+    image: 'portfolio_images/events/TechX.jpg',
+    gallery: ['portfolio_images/events/TechX.jpg'],
     desc: 'An immersive hardware and systems summit discussing future standards and integrated engineering ecosystems for next-generation edge devices.',
     link: 'https://www.linkedin.com/in/aruthra-sm'
   },
@@ -67,8 +67,8 @@ const TIMELINE_EVENTS = [
     category: 'Security Bootcamp',
     learning: 'Mastered advanced cryptography, network telemetry security, and vulnerability mitigation through hands-on memory forensics and malware analysis.',
     skills: ['Malware Forensics', 'Cryptography', 'Vulnerability Mitigation', 'Security'],
-    image: 'portfolio_images/Bootcamp.png',
-    gallery: ['portfolio_images/Bootcamp.png'],
+    image: 'portfolio_images/events/Kerala, CDAC bootcamp_.jpg',
+    gallery: ['portfolio_images/events/Kerala, CDAC bootcamp_.jpg'],
     desc: 'An intensive, hands-on bootcamp hosted by CDAC focused exclusively on deep memory analysis and mitigating sophisticated malware threats.',
     link: 'https://www.linkedin.com/in/aruthra-sm'
   },
@@ -80,8 +80,8 @@ const TIMELINE_EVENTS = [
     category: 'Automation Workshop',
     learning: 'Designed and deployed multi-agent workflows, API connectors, and automation triggers for massive productivity gains in enterprise environments.',
     skills: ['N8N', 'API Connectors', 'Automation Triggers', 'Multi-agent AI'],
-    image: 'portfolio_images/events/n8n.jpg',
-    gallery: ['portfolio_images/events/n8n.jpg'],
+    image: 'portfolio_images/events/N8N.jpg',
+    gallery: ['portfolio_images/events/N8N.jpg'],
     desc: 'A deep-dive technical session into deploying productivity-enhancing automation triggers and orchestrating multi-agent AI systems via N8N.',
     link: 'https://www.linkedin.com/in/aruthra-sm'
   }
