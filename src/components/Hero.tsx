@@ -364,18 +364,12 @@ export const Hero: React.FC<HeroProps> = ({ playAudio }) => {
                 </div>
               </div>
 
-              <div className="flex-1 w-full bg-white relative">
-                <object
-                  data={import.meta.env.BASE_URL + "portfolio_images/Updated_Resume.pdf#toolbar=0"}
-                  type="application/pdf"
-                  className="w-full h-full"
-                >
-                  <iframe src={import.meta.env.BASE_URL + "portfolio_images/Updated_Resume.pdf#toolbar=0"} className="w-full h-full" title="Resume">
-                    <div className="flex items-center justify-center h-full text-black">
-                      <p>Your browser doesn't support embedded PDFs. <a href={import.meta.env.BASE_URL + "portfolio_images/Updated_Resume.pdf"} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline font-bold">Download it here</a>.</p>
-                    </div>
-                  </iframe>
-                </object>
+              <div className="flex-1 w-full bg-white relative overflow-y-auto custom-scrollbar">
+                <img
+                  src={import.meta.env.BASE_URL + "portfolio_images/updated_resume.jpg"}
+                  alt="Aruthra S M Resume"
+                  className="w-full h-auto object-contain"
+                />
               </div>
             </motion.div>
           </div>
