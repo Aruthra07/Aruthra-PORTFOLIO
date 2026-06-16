@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Compass, Code, Send, Download, Award, Users, Calendar, FileText } from 'lucide-react';
+import { Compass, Code, Send, Download, Award, Users, Calendar, FileText, X } from 'lucide-react';
+import { AnimatePresence } from 'framer-motion';
 
 interface HeroProps {
   playAudio: (type: 'hover' | 'click') => void;
@@ -28,6 +29,7 @@ export const Hero: React.FC<HeroProps> = ({ playAudio }) => {
   const [typedText, setTypedText] = useState('');
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [showResumeModal, setShowResumeModal] = useState(false);
 
   // Typing effect
   useEffect(() => {
@@ -275,16 +277,17 @@ export const Hero: React.FC<HeroProps> = ({ playAudio }) => {
             <Send className="w-4 h-4" /> Let's Connect
           </a>
 
-          <a
-            href={import.meta.env.BASE_URL + "portfolio_images/Updated_Resume.pdf"}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => playAudio('click')}
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              playAudio('click');
+              setShowResumeModal(true);
+            }}
             onMouseEnter={() => playAudio('hover')}
-            className="flex items-center gap-2 px-6 py-3.5 border border-accentPurple/30 bg-accentPurple/5 text-accentPurple hover:bg-accentPurple/10 text-sm font-bold rounded-full transition-all duration-300 hover:scale-105"
+            className="flex items-center gap-2 px-6 py-3.5 border border-accentPurple/30 bg-accentPurple/5 text-accentPurple hover:bg-accentPurple/10 text-sm font-bold rounded-full transition-all duration-300 hover:scale-105 cursor-pointer"
           >
             <Download className="w-4 h-4" /> Resume
-          </a>
+          </button>
         </motion.div>
 
         {/* Statistics Section */}
@@ -312,6 +315,72 @@ export const Hero: React.FC<HeroProps> = ({ playAudio }) => {
           ))}
         </motion.div>
       </div>
+
+      {/* Resume Modal */}
+      <AnimatePresence>
+        {showResumeModal && (
+          <div className="fixed inset-0 z-[120] flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={() => {
+                playAudio('click');
+                setShowResumeModal(false);
+              }}
+              className="absolute inset-0 bg-[#030612]/95 backdrop-blur-xl cursor-pointer"
+            />
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.98, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.98, y: 20 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="relative bg-bgPrimary/80 border border-glass-border rounded-3xl overflow-hidden shadow-2xl flex flex-col z-10 w-full max-w-4xl h-[85vh]"
+            >
+              <div className="flex justify-between items-center p-4 border-b border-glass-border bg-black/40">
+                <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                  <FileText className="w-5 h-5 text-accentPurple" /> Resume
+                </h3>
+                <div className="flex items-center gap-3">
+                  <a
+                    href={import.meta.env.BASE_URL + "portfolio_images/Updated_Resume.pdf"}
+                    download="Aruthra_Resume.pdf"
+                    onClick={(e) => e.stopPropagation()}
+                    className="flex items-center gap-2 px-4 py-2 bg-gradient-main text-white text-xs font-bold rounded-xl transition-all duration-300 hover:shadow-[0_0_15px_rgba(139,92,246,0.5)] cursor-pointer"
+                  >
+                    <Download className="w-4 h-4" /> Download
+                  </a>
+                  <button
+                    onClick={() => {
+                      playAudio('click');
+                      setShowResumeModal(false);
+                    }}
+                    className="p-2 bg-white/5 hover:bg-white/10 rounded-full transition-colors border border-glass-border text-textSecondary hover:text-white cursor-pointer"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+              </div>
+
+              <div className="flex-1 w-full bg-white relative">
+                <object
+                  data={import.meta.env.BASE_URL + "portfolio_images/Updated_Resume.pdf#toolbar=0"}
+                  type="application/pdf"
+                  className="w-full h-full"
+                >
+                  <iframe src={import.meta.env.BASE_URL + "portfolio_images/Updated_Resume.pdf#toolbar=0"} className="w-full h-full" title="Resume">
+                    <div className="flex items-center justify-center h-full text-black">
+                      <p>Your browser doesn't support embedded PDFs. <a href={import.meta.env.BASE_URL + "portfolio_images/Updated_Resume.pdf"} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline font-bold">Download it here</a>.</p>
+                    </div>
+                  </iframe>
+                </object>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

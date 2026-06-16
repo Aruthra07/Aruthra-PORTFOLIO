@@ -49,12 +49,23 @@ export const Contact: React.FC<ContactProps> = ({ playAudio }) => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         {/* Left Side: Contact details cards (5 columns) */}
         <div className="lg:col-span-5 flex flex-col gap-6">
-          <h3 className="text-xl md:text-2xl font-bold font-display text-white">
-            Let's build something great together.
-          </h3>
-          <p className="text-xs md:text-sm text-textSecondary leading-relaxed mb-4">
-            Feel free to ping me. I generally respond within a few hours to emails and LinkedIn messages.
-          </p>
+          <div className="flex items-center gap-6 mb-2">
+            <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-2 border-accentCyan shadow-[0_0_20px_rgba(6,182,212,0.2)] shrink-0">
+              <img
+                src={import.meta.env.BASE_URL + "portfolio_images/aruthra_photo.jpg"}
+                alt="Aruthra S M"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div>
+              <h3 className="text-xl md:text-2xl font-bold font-display text-white mb-2">
+                Let's build something great together.
+              </h3>
+              <p className="text-xs md:text-sm text-textSecondary leading-relaxed">
+                Feel free to ping me. I generally respond within a few hours to emails and LinkedIn messages.
+              </p>
+            </div>
+          </div>
 
           <div className="flex flex-col gap-3">
             {[
