@@ -87,7 +87,7 @@ export const About: React.FC<AboutProps> = ({ playAudio }) => {
               {/* Profile Photo */}
               <div className="absolute inset-2 md:inset-4 z-10 rounded-full overflow-hidden aspect-square flex-shrink-0 bg-bgSecondary border-[3px] border-white/10 group-hover:border-accentCyan/40 shadow-[0_0_30px_rgba(139,92,246,0.3)] transition-all duration-500">
                 <img
-                  src={import.meta.env.BASE_URL + "portfolio_images/my_photo[1].jpg"}
+                  src={import.meta.env.BASE_URL + "portfolio_images/aruthra_photo.jpg"}
                   alt="Aruthra S M Portrait"
                   className="w-full h-full object-cover object-center select-none transform group-hover:scale-110 transition-transform duration-700"
                 />
