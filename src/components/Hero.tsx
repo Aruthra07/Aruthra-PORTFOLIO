@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Compass, Code, Send, Download, Award, Users, Calendar, FileText } from 'lucide-react';
 
@@ -14,25 +14,25 @@ const STATS = [
   { label: 'Research Pub', value: 1, icon: <FileText className="w-5 h-5 text-green-400" /> }
 ];
 
+const PHRASES = [
+  "Hi, I'm Aruthra S M",
+  "Technology Enthusiast",
+  "AI Explorer",
+  "Community Leader",
+  "Public Speaker",
+  "Content Writer",
+  "CEO, DotEco"
+];
+
 export const Hero: React.FC<HeroProps> = ({ playAudio }) => {
   const [typedText, setTypedText] = useState('');
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
-  const phrases = [
-    "Hi, I'm Aruthra S M",
-    "Technology Enthusiast",
-    "AI Explorer",
-    "Community Leader",
-    "Public Speaker",
-    "Content Writer",
-    "CEO, DotEco"
-  ];
-
   // Typing effect
   useEffect(() => {
-    let timer: any;
-    const currentPhrase = phrases[phraseIndex];
+    let timer: ReturnType<typeof setTimeout>;
+    const currentPhrase = PHRASES[phraseIndex];
 
     if (!isDeleting) {
       timer = setTimeout(() => {
@@ -48,8 +48,10 @@ export const Hero: React.FC<HeroProps> = ({ playAudio }) => {
       }, 45);
 
       if (typedText === '') {
-        setIsDeleting(false);
-        setPhraseIndex((prev) => (prev + 1) % phrases.length);
+        timer = setTimeout(() => {
+          setIsDeleting(false);
+          setPhraseIndex((prev) => (prev + 1) % PHRASES.length);
+        }, 100);
       }
     }
 

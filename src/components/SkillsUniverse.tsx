@@ -85,8 +85,8 @@ const Planet: React.FC<PlanetProps> = ({ category, isActive, onSelect, onHover }
   const [hovered, setHovered] = useState(false);
   
   // Accumulate angle over time to prevent sudden jumps in orbital position when speed changes
-  const angleRef = useRef(Math.random() * Math.PI * 2);
-
+  const [initialAngle] = useState(() => Math.random() * Math.PI * 2);
+  const angleRef = useRef(initialAngle);
   useFrame((_, delta) => {
     if (meshRef.current) {
       // Auto-brake: slow down rotation dramatically when active or hovered

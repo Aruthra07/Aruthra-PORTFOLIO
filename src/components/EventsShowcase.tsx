@@ -88,7 +88,7 @@ const TIMELINE_EVENTS = [
 ];
 
 export const EventsShowcase: React.FC<EventsProps> = ({ playAudio }) => {
-  const [selectedEvent, setSelectedEvent] = useState<any>(null);
+  const [selectedEvent, setSelectedEvent] = useState<typeof TIMELINE_EVENTS[0] | null>(null);
 
   return (
     <section id="events" className="py-32 px-6 md:px-12 max-w-6xl mx-auto relative z-10 w-full">

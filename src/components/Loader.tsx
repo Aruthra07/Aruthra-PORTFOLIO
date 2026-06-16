@@ -17,7 +17,6 @@ const BOOT_LOGS = [
 
 export const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);
-  const [logIndex, setLogIndex] = useState(0);
 
   useEffect(() => {
     // Progress interval
@@ -36,16 +35,10 @@ export const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    // Cycle through logs based on progress threshold
-    const expectedLogIndex = Math.min(
-      Math.floor((progress / 100) * BOOT_LOGS.length),
-      BOOT_LOGS.length - 1
-    );
-    if (expectedLogIndex !== logIndex) {
-      setLogIndex(expectedLogIndex);
-    }
-  }, [progress, logIndex]);
+  const logIndex = Math.min(
+    Math.floor((progress / 100) * BOOT_LOGS.length),
+    BOOT_LOGS.length - 1
+  );
 
   useEffect(() => {
     if (progress === 100) {

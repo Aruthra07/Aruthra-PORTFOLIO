@@ -3,31 +3,26 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
 
+// Helper function to generate random positions outside the render cycle
+function generatePositions(count: number, spread: number) {
+  const arr = new Float32Array(count * 3);
+  for (let i = 0; i < count; i++) {
+    arr[i * 3] = (Math.random() - 0.5) * spread;     // X
+    arr[i * 3 + 1] = (Math.random() - 0.5) * spread; // Y
+    arr[i * 3 + 2] = (Math.random() - 0.5) * spread; // Z
+  }
+  return arr;
+}
+
 function ParticleSystem() {
   const ref = useRef<THREE.Points>(null);
   const { mouse } = useThree();
 
   // Generate 3D positions for purple particles
-  const positionsPurple = useMemo(() => {
-    const arr = new Float32Array(500 * 3);
-    for (let i = 0; i < 500; i++) {
-      arr[i * 3] = (Math.random() - 0.5) * 12;     // X
-      arr[i * 3 + 1] = (Math.random() - 0.5) * 12; // Y
-      arr[i * 3 + 2] = (Math.random() - 0.5) * 12; // Z
-    }
-    return arr;
-  }, []);
+  const positionsPurple = useMemo(() => generatePositions(500, 12), []);
 
   // Generate 3D positions for cyan particles
-  const positionsCyan = useMemo(() => {
-    const arr = new Float32Array(250 * 3);
-    for (let i = 0; i < 250; i++) {
-      arr[i * 3] = (Math.random() - 0.5) * 10;     // X
-      arr[i * 3 + 1] = (Math.random() - 0.5) * 10; // Y
-      arr[i * 3 + 2] = (Math.random() - 0.5) * 10; // Z
-    }
-    return arr;
-  }, []);
+  const positionsCyan = useMemo(() => generatePositions(250, 10), []);
 
   useFrame((_, delta) => {
     if (ref.current) {
