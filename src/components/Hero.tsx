@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Compass, Code, Send, Download, Award, Users, Calendar, FileText, X } from 'lucide-react';
+import { Compass, Code, Send, Download, Award, Users, Calendar, FileText, X, Sparkles } from 'lucide-react';
 import { AnimatePresence } from 'framer-motion';
 
 interface HeroProps {
@@ -190,7 +190,7 @@ export const Hero: React.FC<HeroProps> = ({ playAudio }) => {
           className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-panel border border-glass-border shadow-lg text-accentCyan font-sans text-xs md:text-sm font-semibold mb-8 backdrop-blur-md"
         >
           <span className="w-2 h-2 rounded-full bg-accentCyan animate-ping" />
-          âœ¦ ECE Student &middot; AI Explorer &middot; Community Leader
+          <Sparkles className="w-4 h-4" /> ECE Student &middot; AI Explorer &middot; Community Leader
         </motion.div>
 
         {/* Title */}
