@@ -9,26 +9,21 @@ export default {
     extend: {
       colors: {
         bgPrimary: 'var(--bg-primary)',
-        bgSecondary: 'var(--bg-secondary)',
+        bgSurface: 'var(--bg-surface)',
         textPrimary: 'var(--text-primary)',
         textSecondary: 'var(--text-secondary)',
-        accentBlue: '#3b82f6',
-        accentPurple: '#8b5cf6',
-        accentCyan: '#06b6d4',
-        accentPink: '#ec4899',
+        textMuted: 'var(--text-muted)',
+        accentBlue: 'var(--accent-blue)',
+        borderSilver: 'var(--border-color)',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
         display: ['Space Grotesk', 'sans-serif'],
       },
       animation: {
-        'spin-slow': 'spin 20s linear infinite',
-        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'fade-in': 'fadeIn 0.5s ease-in-out',
+        'slide-up': 'slideUp 0.6s ease-out forwards',
       },
-      backgroundImage: {
-        'gradient-main': 'linear-gradient(135deg, #3b82f6, #8b5cf6)',
-        'gradient-glow': 'linear-gradient(135deg, #06b6d4, #3b82f6, #8b5cf6)',
-      }
     },
   },
   plugins: [],

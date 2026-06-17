@@ -1,164 +1,121 @@
-import React, { useRef } from 'react';
-import { motion, useMotionValue, useTransform } from 'framer-motion';
-import { Cpu, Mic, Users, Terminal, Sparkles, BookOpen, Database, Satellite } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Cpu, Cloud, Users, Mic, Edit, Database } from 'lucide-react';
 
 interface AboutProps {
   playAudio: (type: 'hover' | 'click') => void;
 }
 
-const TRAITS_DATA = [
-  { label: "Problem Solver", icon: <Cpu className="w-3.5 h-3.5" /> },
-  { label: "Public Speaker", icon: <Mic className="w-3.5 h-3.5" /> },
-  { label: "Community Builder", icon: <Users className="w-3.5 h-3.5" /> },
-  { label: "Content Writer", icon: <Terminal className="w-3.5 h-3.5" /> },
-  { label: "Innovator", icon: <Sparkles className="w-3.5 h-3.5" /> },
-  { label: "Passionate Learner", icon: <BookOpen className="w-3.5 h-3.5" /> },
-  { label: "Data Analyst", icon: <Database className="w-3.5 h-3.5" /> },
-  { label: "Tech Explorer", icon: <Satellite className="w-3.5 h-3.5" /> }
-];
-
-const SKILL_BARS = [
-  { name: "Technical Expertise", percentage: 88 },
-  { name: "Leadership & Communication", percentage: 92 },
-  { name: "Community Building", percentage: 85 },
-  { name: "AI & Cloud Fluency", percentage: 80 }
+const EXPERTISE_CARDS = [
+  {
+    title: "Technology & AI",
+    icon: <Cpu className="w-5 h-5" />,
+    techs: ["Python", "TensorFlow", "OpenAI"],
+    achievements: "Built intelligent recommendation engines and deployed multi-agent workflows."
+  },
+  {
+    title: "Cloud & Automation",
+    icon: <Cloud className="w-5 h-5" />,
+    techs: ["AWS", "Azure", "N8N"],
+    achievements: "Architected scalable serverless infrastructures saving 15+ hours weekly."
+  },
+  {
+    title: "Leadership & Community",
+    icon: <Users className="w-5 h-5" />,
+    techs: ["Team Building", "Agile", "Mentorship"],
+    achievements: "CEO of DotEco, leading initiatives and empowering student developers."
+  },
+  {
+    title: "Public Speaking",
+    icon: <Mic className="w-5 h-5" />,
+    techs: ["Keynotes", "Workshops", "Panels"],
+    achievements: "Delivered technical sessions at global conferences including FeTNA."
+  },
+  {
+    title: "Content Creation",
+    icon: <Edit className="w-5 h-5" />,
+    techs: ["Technical Writing", "Documentation"],
+    achievements: "Authored comprehensive engineering guides bridging complex topics."
+  },
+  {
+    title: "Data & Analytics",
+    icon: <Database className="w-5 h-5" />,
+    techs: ["Tableau", "Pandas", "SQL"],
+    achievements: "Developed BI dashboards improving decision speed by 40%."
+  }
 ];
 
 export const About: React.FC<AboutProps> = ({ playAudio }) => {
-  // 3D Portrait Tilt Animation Values
-  const cardRef = useRef<HTMLDivElement>(null);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const rotateX = useTransform(y, [-150, 150], [15, -15]);
-  const rotateY = useTransform(x, [-150, 150], [-15, 15]);
-
-  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = event.clientX - rect.left - width / 2;
-    const mouseY = event.clientY - rect.top - height / 2;
-    x.set(mouseX);
-    y.set(mouseY);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
   return (
-    <section id="about" className="py-24 px-6 md:px-12 max-w-7xl mx-auto relative z-10 w-full">
-      <div className="flex flex-col gap-2 mb-12">
-        <span className="text-xs font-bold uppercase tracking-[0.25em] bg-gradient-main bg-clip-text text-transparent">
-          Who I Am
-        </span>
-        <h2 className="text-3xl md:text-5xl font-black font-display tracking-tight text-textPrimary">
-          Building Tomorrow's <br />
-          <span className="bg-gradient-main bg-clip-text text-transparent">Technology Leader</span>
-        </h2>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        {/* Left Column: Interactive 3D Frame & Traits */}
-        <div className="lg:col-span-5 flex flex-col items-center">
-          {/* 3D Frame Container */}
-          <div
-            className="perspective-[1000px] w-64 h-64 md:w-80 md:h-80 relative flex items-center justify-center cursor-pointer aspect-square flex-shrink-0"
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            onMouseEnter={() => playAudio('hover')}
-            ref={cardRef}
-          >
-            <motion.div
-              style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
-              className="w-full h-full rounded-full flex flex-col items-center justify-center relative shadow-[0_0_40px_rgba(139,92,246,0.15)] overflow-hidden group aspect-square flex-shrink-0"
-            >
-              {/* Outer Orbit Rings (spinning rounded halos) */}
-              <div className="absolute inset-2 border border-dashed border-accentPurple/30 rounded-[2.2rem] animate-spin-clockwise pointer-events-none" />
-              <div className="absolute inset-4 border border-dashed border-accentCyan/20 rounded-[2.0rem] animate-spin-counterclockwise pointer-events-none" />
-
-              {/* Glowing backlights */}
-              <div className="absolute w-32 h-32 bg-accentBlue/20 blur-[40px] rounded-full top-1/4 left-1/4 group-hover:scale-125 transition-transform duration-500" />
-              <div className="absolute w-32 h-32 bg-accentPurple/20 blur-[40px] rounded-full bottom-1/4 right-1/4 group-hover:scale-125 transition-transform duration-500" />
-
-              {/* Profile Photo */}
-              <div className="absolute inset-2 md:inset-4 z-10 rounded-full overflow-hidden aspect-square flex-shrink-0 bg-bgSecondary border-[3px] border-white/10 group-hover:border-accentCyan/40 shadow-[0_0_30px_rgba(139,92,246,0.3)] transition-all duration-500">
-                <img
-                  src={import.meta.env.BASE_URL + "portfolio_images/aruthra_photo.jpg"}
-                  alt="Aruthra S M Portrait"
-                  className="w-full h-full object-cover object-center select-none transform group-hover:scale-110 transition-transform duration-700"
-                />
-              </div>
-            </motion.div>
+    <section id="about" className="py-12 px-6 md:px-12 max-w-6xl mx-auto relative z-10 w-full">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        {/* Left Column: Portrait & Intro */}
+        <div className="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-accentBlue mb-2 font-sans">
+            Who I Am
+          </span>
+          <h2 className="text-3xl md:text-4xl font-black font-display tracking-tight text-textPrimary mb-6">
+            Building Tomorrow's Tech
+          </h2>
+          
+          <div className="w-48 h-48 md:w-56 md:h-56 relative flex items-center justify-center flex-shrink-0 group overflow-hidden rounded-2xl shadow-xl border border-borderSilver bg-bgSurface mb-6 mx-auto lg:mx-0">
+            <img
+              src={import.meta.env.BASE_URL + "portfolio_images/aruthra_photo.jpg"}
+              alt="Aruthra S M Portrait"
+              className="w-full h-full object-cover object-center select-none transition-transform duration-700 ease-out group-hover:scale-105"
+            />
           </div>
-
-          {/* Traits Tag Cloud */}
-          <div className="flex flex-wrap gap-2 justify-center mt-10 max-w-sm">
-            {TRAITS_DATA.map((trait, idx) => (
-              <span
-                key={idx}
-                className="px-3.5 py-1.5 rounded-full text-xs font-semibold text-textSecondary bg-white/5 border border-glass-border hover:border-accentCyan hover:text-accentCyan hover:bg-accentCyan/5 transition-all duration-300 flex items-center gap-1.5"
-              >
-                {trait.icon}
-                {trait.label}
-              </span>
-            ))}
+          
+          <p className="text-sm text-textSecondary font-sans leading-relaxed mb-4">
+            As an ECE student with an <strong className="text-textPrimary">8.8 CGPA</strong>, I blend technical exploration with active leadership.
+          </p>
+          <div className="text-xs font-medium text-textMuted italic border-l-2 border-borderSilver pl-3">
+            "True innovation happens at the intersection of technology and human connection."
           </div>
         </div>
 
-        {/* Right Column: Bio Story & Performance Bars */}
-        <div className="lg:col-span-7 flex flex-col gap-6 text-textSecondary font-sans">
-          <p className="text-sm md:text-base leading-relaxed">
-            I believe that true innovation happens at the intersection of technology and human connection. As an Electronics & Communication Engineering student with an <strong className="text-accentCyan">8.8 CGPA</strong>, my focus extends far beyond writing codeâ€”I am driven by a passion to build communities, lead teams, and communicate complex ideas effectively.
-          </p>
-          <p className="text-sm md:text-base leading-relaxed">
-            My expertise lies in blending <strong className="text-textPrimary">technical exploration</strong> with <strong className="text-textPrimary">leadership</strong>. Whether I'm diving into AI and cloud architectures, managing technical events, or delivering a public speech, my goal is always to empower others and create meaningful, scalable solutions. Continuous learning is not just a habit for me; it's the foundation of my journey.
-          </p>
-
-          {/* Current Positions */}
-          <div className="mt-4 p-5 rounded-2xl bg-white/5 border border-glass-border">
-            <h3 className="text-sm font-bold text-textPrimary uppercase tracking-wider mb-4 flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-accentPurple" /> Current Roles
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {[
-                { role: "CEO", org: "DotEco", color: "text-green-400" },
-                { role: "Student Ambassador", org: "Microsoft Learn", color: "text-blue-400" },
-                { role: "Community Member", org: "AWS", color: "text-orange-400" },
-                { role: "Community Participant", org: "Oracle", color: "text-red-400" },
-                { role: "Content Writer", org: "Freelance", color: "text-purple-400" },
-                { role: "Public Speaker", org: "Events & Tech Conferences", color: "text-pink-400" }
-              ].map((item, idx) => (
-                <div key={idx} className="flex flex-col">
-                  <span className={`text-xs font-bold ${item.color}`}>{item.role}</span>
-                  <span className="text-xs text-textSecondary">{item.org}</span>
+        {/* Right Column: Strengths Swiper */}
+        <div className="lg:col-span-8 flex flex-col pt-2 lg:pt-14">
+          <h3 className="text-xs font-bold text-textPrimary mb-4 tracking-wide uppercase">Professional Expertise</h3>
+          
+          {/* Horizontal Swiping Container */}
+          <div className="flex overflow-x-auto gap-4 pb-6 snap-x snap-mandatory custom-scrollbar w-full">
+            {EXPERTISE_CARDS.map((card, idx) => (
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                key={idx}
+                onMouseEnter={() => playAudio('hover')}
+                className="flex-shrink-0 w-[220px] snap-start p-5 rounded-xl bg-bgSurface border border-borderSilver hover:border-accentBlue transition-all duration-300 flex flex-col gap-4 group shadow-sm hover:shadow-md cursor-grab active:cursor-grabbing"
+              >
+                <div className="flex flex-col gap-3">
+                  <div className="p-2.5 w-max bg-bgPrimary border border-borderSilver rounded-xl text-textSecondary group-hover:text-accentBlue transition-colors duration-300">
+                    {card.icon}
+                  </div>
+                  <h4 className="text-sm font-bold text-textPrimary">{card.title}</h4>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Competency Bars */}
-          <div className="flex flex-col gap-4 mt-2">
-            {SKILL_BARS.map((bar, idx) => (
-              <div key={idx} className="flex flex-col gap-1.5">
-                <div className="flex justify-between items-center text-xs font-semibold">
-                  <span className="text-textPrimary">{bar.name}</span>
-                  <span className="text-accentCyan">{bar.percentage}%</span>
+                
+                <p className="text-xs text-textMuted leading-relaxed flex-1">
+                  {card.achievements}
+                </p>
+                
+                <div className="flex flex-wrap gap-1 mt-auto pt-4 border-t border-borderSilver/50">
+                  {card.techs.map((tech, i) => (
+                    <span key={i} className="text-[9px] font-semibold bg-bgPrimary border border-borderSilver px-1.5 py-0.5 rounded text-textSecondary uppercase tracking-wider">
+                      {tech}
+                    </span>
+                  ))}
                 </div>
-                <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden border border-white/5">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${bar.percentage}%` }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.2, delay: idx * 0.1, ease: 'easeOut' }}
-                    className="h-full bg-gradient-main rounded-full"
-                  />
-                </div>
-              </div>
+              </motion.div>
             ))}
+          </div>
+          
+          {/* Swiper Hint */}
+          <div className="flex items-center gap-2 text-[10px] text-textMuted font-semibold tracking-wider mt-2 ml-1">
+            <span className="w-8 h-[1px] bg-borderSilver"></span>
+            SWIPE TO EXPLORE
           </div>
         </div>
       </div>

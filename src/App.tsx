@@ -1,27 +1,21 @@
 import { useState, useEffect } from 'react';
 import { Loader } from './components/Loader';
 import { Navbar } from './components/Navbar';
-import { ThreeBackground } from './components/ThreeBackground';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
-import { SkillsUniverse } from './components/SkillsUniverse';
 import { Projects } from './components/Projects';
 import { CertVault } from './components/CertVault';
 import { Experience } from './components/Experience';
 import { Achievements } from './components/Achievements';
 import { SocialShowcase } from './components/SocialShowcase';
 import { Contact } from './components/Contact';
-import { AIAssistant } from './components/AIAssistant';
-import { VideoResume } from './components/VideoResume';
 import { EventsShowcase } from './components/EventsShowcase';
-import { Articles } from './components/Articles';
 import { LeadershipHighlights } from './components/LeadershipHighlights';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+  const [theme, setTheme] = useState<'dark' | 'light'>('light');
   const [isMuted, setIsMuted] = useState(false);
-  const [mousePos, setMousePos] = useState({ x: -100, y: -100 });
 
   // Handle document theme classes
   useEffect(() => {
@@ -34,15 +28,6 @@ function App() {
       root.classList.remove('dark');
     }
   }, [theme]);
-
-  // Capture mouse coordinates for custom cursor trail
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
@@ -92,17 +77,7 @@ function App() {
   }
 
   return (
-    <div className="relative min-h-screen text-textPrimary select-none">
-      {/* Custom Cursor Followers (hidden on mobile) */}
-      <div
-        className="hidden md:block custom-cursor"
-        style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }}
-      />
-      <div
-        className="hidden md:block custom-cursor-dot"
-        style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }}
-      />
-
+    <div className="relative min-h-screen text-textPrimary bg-bgPrimary select-none transition-colors duration-500">
       {/* Floating Header Navigation */}
       <Navbar
         theme={theme}
@@ -112,58 +87,45 @@ function App() {
         playAudio={playAudio}
       />
 
-      {/* Interactive 3D Particles */}
-      <ThreeBackground />
-
       {/* Main Pages content stack */}
       <main className="flex flex-col items-center">
         <Hero playAudio={playAudio} />
-        <div className="w-[85%] h-[1px] bg-gradient-to-r from-transparent via-accentPurple/25 to-transparent my-6" />
-
+        
         <About playAudio={playAudio} />
-        <div className="w-[85%] h-[1px] bg-gradient-to-r from-transparent via-accentPurple/25 to-transparent my-6" />
-
-        <VideoResume playAudio={playAudio} />
-        <div className="w-[85%] h-[1px] bg-gradient-to-r from-transparent via-accentPurple/25 to-transparent my-6" />
-
-        <SkillsUniverse playAudio={playAudio} />
-        <div className="w-[85%] h-[1px] bg-gradient-to-r from-transparent via-accentPurple/25 to-transparent my-6" />
+        <div className="w-[85%] h-[1px] bg-borderSilver my-6" />
 
         <Projects playAudio={playAudio} />
-        <div className="w-[85%] h-[1px] bg-gradient-to-r from-transparent via-accentPurple/25 to-transparent my-6" />
+        <div className="w-[85%] h-[1px] bg-borderSilver my-6" />
 
         <CertVault playAudio={playAudio} />
-        <div className="w-[85%] h-[1px] bg-gradient-to-r from-transparent via-accentPurple/25 to-transparent my-6" />
+        <div className="w-[85%] h-[1px] bg-borderSilver my-6" />
 
         <Experience playAudio={playAudio} />
-        <div className="w-[85%] h-[1px] bg-gradient-to-r from-transparent via-accentPurple/25 to-transparent my-6" />
+        <div className="w-[85%] h-[1px] bg-borderSilver my-6" />
 
         <EventsShowcase playAudio={playAudio} />
-        <div className="w-[85%] h-[1px] bg-gradient-to-r from-transparent via-accentPurple/25 to-transparent my-6" />
-
-        <Articles playAudio={playAudio} />
-        <div className="w-[85%] h-[1px] bg-gradient-to-r from-transparent via-accentPurple/25 to-transparent my-6" />
+        <div className="w-[85%] h-[1px] bg-borderSilver my-6" />
 
         <LeadershipHighlights playAudio={playAudio} />
-        <div className="w-[85%] h-[1px] bg-gradient-to-r from-transparent via-accentPurple/25 to-transparent my-6" />
+        <div className="w-[85%] h-[1px] bg-borderSilver my-6" />
 
         <Achievements playAudio={playAudio} />
-        <div className="w-[85%] h-[1px] bg-gradient-to-r from-transparent via-accentPurple/25 to-transparent my-6" />
+        <div className="w-[85%] h-[1px] bg-borderSilver my-6" />
 
         <SocialShowcase playAudio={playAudio} />
-        <div className="w-[85%] h-[1px] bg-gradient-to-r from-transparent via-accentPurple/25 to-transparent my-6" />
+        <div className="w-[85%] h-[1px] bg-borderSilver my-6" />
 
         <Contact playAudio={playAudio} />
       </main>
 
       {/* Main footer info */}
-      <footer className="py-10 border-t border-glass-border text-center text-textMuted text-xs font-sans relative z-10 w-full bg-[#030612]/40">
+      <footer className="py-10 border-t border-borderSilver text-center text-textMuted text-xs font-sans relative z-10 w-full bg-bgSurface">
         <div className="flex justify-center gap-6 mb-4 text-base">
           <a
             href="https://www.linkedin.com/in/aruthra-sm"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-textSecondary hover:text-accentPurple transition-colors"
+            className="text-textSecondary hover:text-accentBlue transition-colors"
           >
             <i className="fab fa-linkedin-in" />
           </a>
@@ -171,13 +133,13 @@ function App() {
             href="https://github.com/Aruthra07"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-textSecondary hover:text-accentPurple transition-colors"
+            className="text-textSecondary hover:text-accentBlue transition-colors"
           >
             <i className="fab fa-github" />
           </a>
           <a
             href="mailto:aruthramani785@gmail.com"
-            className="text-textSecondary hover:text-accentPurple transition-colors"
+            className="text-textSecondary hover:text-accentBlue transition-colors"
           >
             <i className="fas fa-envelope" />
           </a>
@@ -189,9 +151,6 @@ function App() {
           &copy; 2026 Aruthra S M. All rights reserved.
         </p>
       </footer>
-
-      {/* Chat Assistant */}
-      <AIAssistant playAudio={playAudio} />
     </div>
   );
 }

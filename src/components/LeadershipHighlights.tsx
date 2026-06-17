@@ -27,7 +27,7 @@ const COMMUNITY_ITEMS: HighlightItem[] = [
     date: '2024 - Present',
     location: 'SNS College of Engineering',
     tags: ['Azure Cloud', 'Azure AI', 'Peer Tutoring', 'Community Organizing'],
-    icon: <Users className="w-5 h-5 text-accentCyan" />,
+    icon: <Users className="w-5 h-5 text-accentBlue" />,
     metric: 'Beta Lead'
   },
   {
@@ -38,7 +38,7 @@ const COMMUNITY_ITEMS: HighlightItem[] = [
     date: '2024 - Present',
     location: 'Coimbatore, India',
     tags: ['AWS Cloud', 'AWS Academy', 'Mentorship', 'Tutorial Writing'],
-    icon: <Compass className="w-5 h-5 text-accentPurple" />,
+    icon: <Compass className="w-5 h-5 text-accentBlue" />,
     metric: '50+ Guided'
   },
   {
@@ -49,7 +49,7 @@ const COMMUNITY_ITEMS: HighlightItem[] = [
     date: '2024 - Present',
     location: 'Online Ecosystem',
     tags: ['OCI Developer', 'Generative AI Pro', 'DB Administration'],
-    icon: <Sparkles className="w-5 h-5 text-yellow-400" />,
+    icon: <Sparkles className="w-5 h-5 text-accentBlue" />,
     metric: 'Active Contributor'
   }
 ];
@@ -63,7 +63,7 @@ const LEADERSHIP_ITEMS: HighlightItem[] = [
     date: '2024 - Present',
     location: 'SNS College of Engineering',
     tags: ['Strategic Planning', 'Team Management', 'Sustainability Tech', 'Public Relations'],
-    icon: <Star className="w-5 h-5 text-accentPink" />,
+    icon: <Star className="w-5 h-5 text-accentBlue" />,
     metric: '15+ Team Size'
   },
   {
@@ -74,7 +74,7 @@ const LEADERSHIP_ITEMS: HighlightItem[] = [
     date: 'Feb 2025',
     location: 'SNS College of Engineering',
     tags: ['UI/UX Design', 'Figma Wireframing', 'Design Tokens', 'Event Hosting'],
-    icon: <BookOpen className="w-5 h-5 text-green-400" />,
+    icon: <BookOpen className="w-5 h-5 text-accentBlue" />,
     metric: 'Bootcamp Host'
   },
   {
@@ -99,7 +99,7 @@ const MILESTONE_ITEMS: HighlightItem[] = [
     date: '2022 - Present',
     location: 'SNS College of Engineering',
     tags: ['ECE Core', 'Signal Telemetry', '8.8 CGPA', 'Academic Top 10%'],
-    icon: <Award className="w-5 h-5 text-yellow-400" />,
+    icon: <Award className="w-5 h-5 text-accentBlue" />,
     metric: '8.8 CGPA'
   },
   {
@@ -110,7 +110,7 @@ const MILESTONE_ITEMS: HighlightItem[] = [
     date: 'Nov 2024',
     location: 'IJNRD Publisher',
     tags: ['Academic Research', 'Technical Writing', 'IoT Architecture'],
-    icon: <BookOpen className="w-5 h-5 text-accentCyan" />,
+    icon: <BookOpen className="w-5 h-5 text-accentBlue" />,
     metric: '1 Published Paper'
   },
   {
@@ -121,7 +121,7 @@ const MILESTONE_ITEMS: HighlightItem[] = [
     date: '2024 - 2025',
     location: 'Verified Issuers',
     tags: ['AWS SA', 'SnowPro Core', 'ServiceNow CSA', 'OCI GenAI Pro'],
-    icon: <Award className="w-5 h-5 text-accentPurple" />,
+    icon: <Award className="w-5 h-5 text-accentBlue" />,
     metric: '10+ Credentials'
   }
 ];
@@ -140,11 +140,11 @@ export const LeadershipHighlights: React.FC<LeadershipHighlightsProps> = ({ play
   return (
     <section id="leadership-highlights" className="py-24 px-6 md:px-12 max-w-7xl mx-auto relative z-10 w-full">
       <div className="flex flex-col gap-2 mb-10 text-center md:text-left">
-        <span className="text-xs font-bold uppercase tracking-[0.25em] bg-gradient-main bg-clip-text text-transparent">
+        <span className="text-[10px] font-bold uppercase tracking-widest text-accentBlue font-sans">
           Endorsements & Impact
         </span>
-        <h2 className="text-3xl md:text-5xl font-black font-display tracking-tight text-textPrimary">
-          Leadership & <span className="bg-gradient-main bg-clip-text text-transparent">Key Highlights</span>
+        <h2 className="text-3xl md:text-4xl font-black font-display tracking-tight text-textPrimary">
+          Leadership & Key Highlights
         </h2>
         <p className="text-textSecondary text-sm md:text-base max-w-2xl mt-2 leading-relaxed">
           Showcasing authentic community leadership roles, student organization management, and verified academic milestones.
@@ -152,7 +152,7 @@ export const LeadershipHighlights: React.FC<LeadershipHighlightsProps> = ({ play
       </div>
 
       {/* Tabs Row */}
-      <div className="flex flex-wrap gap-2.5 justify-center md:justify-start mb-10 border-b border-glass-border pb-5">
+      <div className="flex flex-wrap gap-2.5 justify-center md:justify-start mb-10 border-b border-borderSilver pb-5">
         {TABS.map((tab) => (
           <button
             key={tab.value}
@@ -163,8 +163,8 @@ export const LeadershipHighlights: React.FC<LeadershipHighlightsProps> = ({ play
             onMouseEnter={() => playAudio('hover')}
             className={`px-4 py-2.5 rounded-full text-xs font-bold transition-all duration-300 cursor-pointer ${
               activeTab === tab.value
-                ? 'bg-gradient-main text-white shadow-lg shadow-accentPurple/25'
-                : 'bg-white/5 border border-glass-border text-textSecondary hover:text-textPrimary hover:bg-white/10'
+                ? 'bg-textPrimary text-bgPrimary shadow-lg'
+                : 'bg-transparent border border-borderSilver text-textSecondary hover:text-textPrimary hover:bg-bgSurface'
             }`}
           >
             {tab.label}
@@ -190,28 +190,25 @@ export const LeadershipHighlights: React.FC<LeadershipHighlightsProps> = ({ play
               transition={{ duration: 0.35, delay: idx * 0.05 }}
               key={item.id}
               onMouseEnter={() => playAudio('hover')}
-              className="glass-card p-6 md:p-7 rounded-3xl border border-glass-border flex flex-col justify-between group relative overflow-hidden"
+              className="bg-bgSurface p-6 md:p-7 rounded-xl border border-borderSilver flex flex-col justify-between group hover:border-accentBlue transition-colors shadow-sm"
             >
-              {/* Corner Glow overlay */}
-              <div className="absolute -top-10 -right-10 w-24 h-24 bg-gradient-glow opacity-5 blur-[25px] rounded-full group-hover:scale-125 transition-transform duration-500" />
-              
               <div>
                 {/* Header: Icon and Metric */}
                 <div className="flex justify-between items-start mb-5">
-                  <div className="p-3 bg-white/5 border border-glass-border rounded-2xl group-hover:scale-110 transition-transform duration-300">
+                  <div className="p-3 bg-bgPrimary border border-borderSilver rounded-xl group-hover:scale-110 transition-transform duration-300">
                     {item.icon}
                   </div>
                   {item.metric && (
-                    <span className="text-[10px] text-accentCyan font-bold uppercase font-mono tracking-widest bg-white/5 border border-glass-border px-3 py-1 rounded-full">
+                    <span className="text-[10px] text-accentBlue font-bold uppercase font-mono tracking-widest bg-bgPrimary border border-borderSilver px-3 py-1 rounded-full">
                       {item.metric}
                     </span>
                   )}
                 </div>
 
-                <h3 className="text-base font-bold font-display text-textPrimary mb-1.5 leading-tight group-hover:text-accentCyan transition-colors">
+                <h3 className="text-base font-bold font-display text-textPrimary mb-1.5 leading-tight group-hover:text-accentBlue transition-colors">
                   {item.title}
                 </h3>
-                <span className="text-[11px] font-bold text-accentPurple uppercase tracking-wider block mb-3">
+                <span className="text-[11px] font-bold text-textSecondary uppercase tracking-wider block mb-3">
                   {item.subtitle}
                 </span>
 
@@ -221,12 +218,12 @@ export const LeadershipHighlights: React.FC<LeadershipHighlightsProps> = ({ play
               </div>
 
               {/* Card Footer Details */}
-              <div className="pt-4 border-t border-glass-border flex justify-between items-center text-[10px] font-mono text-textMuted">
+              <div className="pt-4 border-t border-borderSilver flex justify-between items-center text-[10px] font-mono text-textMuted">
                 <span className="flex items-center gap-1">
-                  <Calendar className="w-3.5 h-3.5 text-accentPurple/70" /> {item.date}
+                  <Calendar className="w-3.5 h-3.5" /> {item.date}
                 </span>
                 <span className="flex items-center gap-1">
-                  <MapPin className="w-3.5 h-3.5 text-accentCyan/70" /> {item.location}
+                  <MapPin className="w-3.5 h-3.5" /> {item.location}
                 </span>
               </div>
             </motion.div>
